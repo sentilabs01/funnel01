@@ -1,0 +1,61 @@
+/* Responsive design validation styles */
+@media (max-width: 768px) {
+  .responsive-test {
+    border: 2px solid green;
+  }
+}
+
+@media (max-width: 640px) {
+  .responsive-test {
+    border: 2px solid blue;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-test {
+    border: 2px solid red;
+  }
+}
+
+/* Voice search animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.voice-active {
+  animation: pulse 1.5s infinite;
+}
+
+/* Improved accessibility styles */
+:focus {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Dark/light mode transition improvements */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
