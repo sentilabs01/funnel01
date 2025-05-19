@@ -1,103 +1,56 @@
-import Image from "next/image";
+"use client";
+
+import { SplineScene } from "@/components/ui/splite";
+import { Card } from "@/components/ui/card";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { theme } = useTheme();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <div className="min-h-screen w-full flex items-center justify-center p-4">
+      <Card className="w-full h-[500px] bg-white dark:bg-black/[0.96] relative overflow-hidden">
+        <div className="flex h-full">
+          {/* Left content */}
+          <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white font-orbitron tracking-wider">
+              Interactive 3D
+            </h1>
+            <p className="mt-4 text-gray-700 dark:text-gray-300 max-w-lg font-geist-sans">
+              Bring your UI to life with beautiful 3D scenes. Create immersive experiences 
+              that capture attention and enhance your design.
+            </p>
+            <a 
+              href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0/voice"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative mt-8 inline-flex group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-neutral-400 to-neutral-300 dark:from-white/30 dark:to-white/10 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+              <button className="relative px-8 py-4 bg-black dark:bg-white rounded-lg leading-none flex items-center divide-x divide-gray-600 dark:divide-gray-200">
+                <span className="text-gray-100 dark:text-gray-800 group-hover:text-white dark:group-hover:text-black pr-6 font-geist-sans">Let's Chat</span>
+                <span className="text-indigo-400 dark:text-indigo-500 group-hover:text-gray-100 dark:group-hover:text-gray-800 pl-6 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </button>
+            </a>
+          </div>
+
+          {/* Right content */}
+          <div className="flex-1 relative">
+            <SplineScene 
+              scene={
+                theme === 'dark' 
+                  ? "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+                  : "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              }
+              className="w-full h-full"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </Card>
     </div>
   );
 }
