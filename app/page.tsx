@@ -28,7 +28,7 @@ export default function Home() {
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-neutral-400 to-neutral-300 dark:from-white/30 dark:to-white/10 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
               <button className="relative px-8 py-4 bg-black dark:bg-white rounded-lg leading-none flex items-center divide-x divide-gray-600 dark:divide-gray-200">
-                <span className="text-gray-100 dark:text-gray-800 group-hover:text-white dark:group-hover:text-black pr-6 font-geist-sans">Let's Chat</span>
+                <span className="text-gray-100 dark:text-gray-800 group-hover:text-white dark:group-hover:text-black pr-6 font-geist-sans">Let&apos;s Chat</span>
                 <span className="text-indigo-400 dark:text-indigo-500 group-hover:text-gray-100 dark:group-hover:text-gray-800 pl-6 transition duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
