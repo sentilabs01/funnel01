@@ -21,16 +21,25 @@ export default function Home() {
               that capture attention and enhance your design.
             </p>
             <a 
-              href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0/voice"
+              href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0"
               target="_blank"
               rel="noopener noreferrer"
               className="relative mt-8 inline-flex group"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-neutral-400 to-neutral-300 dark:from-white/30 dark:to-white/10 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-              <button className="relative px-8 py-4 bg-black dark:bg-white rounded-lg leading-none flex items-center divide-x divide-gray-600 dark:divide-gray-200">
-                <span className="text-gray-100 dark:text-gray-800 group-hover:text-white dark:group-hover:text-black pr-6 font-geist-sans">Let&apos;s Chat</span>
-                <span className="text-indigo-400 dark:text-indigo-500 group-hover:text-gray-100 dark:group-hover:text-gray-800 pl-6 transition duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <button
+                className="relative px-8 py-4 rounded-xl flex items-center gap-4 overflow-hidden border border-white/40 dark:border-white/20 bg-white/20 dark:bg-black/30 backdrop-blur-0 transition-all duration-300
+                  before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-white/0 dark:before:from-white/10 dark:before:to-black/0 before:opacity-80 before:pointer-events-none
+                  after:content-[''] after:absolute after:inset-0 after:rounded-xl after:opacity-70 after:pointer-events-none
+                  after:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] after:from-indigo-400/70 after:to-transparent
+                  group-hover:after:from-indigo-300/90 group-hover:after:to-transparent
+                  focus:outline-none"
+                style={{ boxShadow: '0 0 20px 6px rgba(99,102,241,0.5), 0 0 0 2px rgba(255,255,255,0.15) inset' }}
+              >
+                <span className="relative z-10 text-black dark:text-white font-bold font-geist-sans tracking-wide text-lg select-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+                  Let&apos;s Chat
+                </span>
+                <span className="relative z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 dark:text-indigo-300 group-hover:text-indigo-100 transition drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
