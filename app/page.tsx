@@ -14,11 +14,11 @@ export default function Home() {
           {/* Left content */}
           <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
             <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white font-orbitron tracking-wider">
-              Interactive 3D
+              Interactive Animations
             </h1>
             <p className="mt-4 text-gray-700 dark:text-gray-300 max-w-lg font-geist-sans">
               Bring your UI to life with beautiful 3D scenes. Create immersive experiences 
-              that capture attention and enhance your design.
+              that capture attention and enhance your business.
             </p>
             <a 
               href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0"
