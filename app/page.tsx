@@ -3,9 +3,19 @@
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
 import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
   const { theme } = useTheme();
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursor({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4">
@@ -27,12 +37,7 @@ export default function Home() {
               className="relative mt-8 inline-flex group"
             >
               <button
-                className="relative px-8 py-4 rounded-xl flex items-center gap-4 overflow-hidden border border-white/40 dark:border-white/20 bg-white/20 dark:bg-black/30 backdrop-blur-0 transition-all duration-300
-                  before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-white/0 dark:before:from-white/10 dark:before:to-black/0 before:opacity-80 before:pointer-events-none
-                  after:content-[''] after:absolute after:inset-0 after:rounded-xl after:opacity-70 after:pointer-events-none
-                  after:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] after:from-indigo-400/70 after:to-transparent
-                  group-hover:after:from-indigo-300/90 group-hover:after:to-transparent
-                  focus:outline-none"
+                className="glass-shimmer-btn"
                 style={{ boxShadow: '0 0 20px 6px rgba(99,102,241,0.5), 0 0 0 2px rgba(255,255,255,0.15) inset' }}
               >
                 <span className="relative z-10 text-black dark:text-white font-bold font-geist-sans tracking-wide text-lg select-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
@@ -45,18 +50,63 @@ export default function Home() {
                 </span>
               </button>
             </a>
+            <style jsx>{`
+              .glass-shimmer-btn {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 2rem;
+                border-radius: 1rem;
+                border: 1.5px solid rgba(255,255,255,0.35);
+                background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.10) 100%);
+                box-shadow: 0 4px 32px 0 rgba(31,38,135,0.15);
+                backdrop-filter: blur(16px);
+                overflow: hidden;
+                cursor: pointer;
+                transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s;
+              }
+              .glass-shimmer-btn::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0.7) 100%);
+                opacity: 0.35;
+                transform: skewX(-20deg) translateX(-100%);
+                transition: transform 0.7s cubic-bezier(.4,2,.3,1);
+                pointer-events: none;
+              }
+              .glass-shimmer-btn:hover::before, .glass-shimmer-btn:focus::before {
+                transform: skewX(-20deg) translateX(100%);
+              }
+              .glass-shimmer-btn:hover, .glass-shimmer-btn:focus {
+                transform: rotateY(8deg) scale(1.04);
+                box-shadow: 0 8px 40px 0 rgba(31,38,135,0.25);
+              }
+            `}</style>
           </div>
 
           {/* Right content */}
           <div className="flex-1 relative">
-            <SplineScene 
-              scene={
-                theme === 'dark' 
-                  ? "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
-                  : "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              }
-              className="w-full h-full"
-            />
+            <a
+              href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'block', width: '100%', height: '100%' }}
+            >
+              <SplineScene 
+                scene={
+                  theme === 'dark' 
+                    ? "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+                    : "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                }
+                className="w-full h-full cursor-pointer"
+                cursor={cursor}
+              />
+            </a>
           </div>
         </div>
       </Card>
