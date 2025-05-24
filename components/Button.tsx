@@ -8,6 +8,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean
 }
 
+// Utility to filter out unwanted props
+function filterMotionButtonProps(props: ButtonProps) {
+  const rest = { ...props };
+  delete rest.onDrag;
+  delete rest.onDragStart;
+  delete rest.onDragEnd;
+  delete rest.onDragOver;
+  delete rest.onDragEnter;
+  delete rest.onDragLeave;
+  delete rest.onDrop;
+  delete rest.onAnimationStart;
+  delete rest.onAnimationEnd;
+  delete rest.onAnimationIteration;
+  return rest;
+}
+
 const Button = ({
   children,
   className,
@@ -29,6 +45,8 @@ const Button = ({
     lg: "px-8 py-3 text-lg"
   }
 
+  const restProps = filterMotionButtonProps(props) as Omit<React.ComponentProps<typeof motion.button>, 'ref'>;
+
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
@@ -45,7 +63,7 @@ const Button = ({
         className
       )}
       disabled={disabled || isLoading}
-      {...props}
+      {...restProps}
     >
       {isLoading ? (
         <div className="flex items-center justify-center">

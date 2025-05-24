@@ -6,7 +6,24 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hover?: boolean
 }
 
+// Utility to filter out unwanted props for motion.div
+function filterMotionDivProps(props: CardProps) {
+  const rest = { ...props };
+  delete rest.onDrag;
+  delete rest.onDragStart;
+  delete rest.onDragEnd;
+  delete rest.onDragOver;
+  delete rest.onDragEnter;
+  delete rest.onDragLeave;
+  delete rest.onDrop;
+  delete rest.onAnimationStart;
+  delete rest.onAnimationEnd;
+  delete rest.onAnimationIteration;
+  return rest;
+}
+
 const Card = ({ children, className, hover = true, ...props }: CardProps) => {
+  const restProps = filterMotionDivProps(props) as Omit<React.ComponentProps<typeof motion.div>, 'ref'>;
   return (
     <motion.div
       whileHover={hover ? { scale: 1.01, y: -2 } : undefined}
@@ -22,7 +39,7 @@ const Card = ({ children, className, hover = true, ...props }: CardProps) => {
         "relative overflow-hidden",
         className
       )}
-      {...props}
+      {...restProps}
     >
       {/* Inner glow effect */}
       <div className="absolute inset-0 rounded-2xl opacity-30">

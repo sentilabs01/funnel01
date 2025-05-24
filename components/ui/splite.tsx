@@ -11,9 +11,9 @@ interface SplineSceneProps {
 }
 
 export function SplineScene({ scene, className, cursor }: SplineSceneProps) {
-  const splineRef = useRef<any>(null);
+  const splineRef = useRef<unknown>(null);
 
-  const handleLoad = (spline: any) => {
+  const handleLoad = (spline: unknown) => {
     splineRef.current = spline;
   };
 
