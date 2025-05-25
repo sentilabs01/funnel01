@@ -23,9 +23,14 @@ export default function Home() {
         <div className="flex h-full">
           {/* Left content */}
           <div className="flex-1 p-8 relative z-10 flex flex-col justify-center items-start gap-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white font-orbitron tracking-wider mb-8 text-left">
+            <a
+              href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-4xl md:text-5xl font-bold text-black dark:text-white font-orbitron tracking-wider mb-8 text-left transition"
+            >
               Automate Workflows
-            </h1>
+            </a>
             <div className="flex flex-row flex-wrap items-center justify-start gap-8 w-full">
               <a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">
                 <img src="https://automationalien.s3.us-east-1.amazonaws.com/make-logo-png.png" alt="Make Logo" className="h-8 md:h-10 lg:h-12 w-auto object-contain" />
